@@ -10,8 +10,8 @@ var express = require('express')
 //noinspection JSValidateTypes
 app.configure(function() {
     app.set('views', __dirname + '/views');
-	app.set('view engine', 'ejs');
-	app.engine('ejs', require('ejs-locals'));
+	app.set('view engine', 'html');
+	app.engine('html', require('ejs-locals'));
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
 	app.use(express.bodyParser());
