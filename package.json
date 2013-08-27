@@ -1,0 +1,23 @@
+{
+  "name": "familygraph",
+  "description":"FamilyGraph :: A Social Family Tree Builder",
+  "version":"0.0.1",
+  "private":true,
+  "scripts":{
+     "start":"node app.js"
+  },
+  "dependencies": {
+    "express": "3.x.x",
+    "connect-flash": "0.1.x",
+    "ejs": ">= 0.0.0",
+    "ejs-locals":"*",
+    "passport": ">= 0.0.0",
+    "passport-local": ">= 0.0.0",
+    "mongodb": ">= 0.0.0",
+    "mongoose": ">= 0.0.0",
+    "bcrypt-nodejs": ">= 0.0.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}
