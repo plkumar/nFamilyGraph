@@ -1,4 +1,4 @@
-var db = require('./config/dbschema');
+var db = require('./models/user');
 
 module.exports = function(grunt) {
 

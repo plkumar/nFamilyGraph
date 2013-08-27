@@ -2,7 +2,7 @@
 
 #### 1. app.js is now split up into multiple files
 
-config/dbschema.js - mongoose database schema
+config/user.js - mongoose database schema
 config/pass.js - contains most of the passport configuration, also contains an additional admin middleware function
 
 routes/basic.js - basic routes paths
