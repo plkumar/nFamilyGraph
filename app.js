@@ -4,18 +4,21 @@ var express = require('express')
   , pass = require('./config/pass')
   , passport = require('passport')
   , basic_routes = require('./routes/basic')
-  , user_routes = require('./routes/user');
+  , user_routes = require('./routes/user')
+  , connect=require('connect');
+
+var port = process.env.PORT || 3000;
 
 // configure Express
 //noinspection JSValidateTypes
 app.configure(function() {
     app.set('views', __dirname + '/views');
-	app.set('view engine', 'html');
-	app.engine('html', require('ejs-locals'));
+	app.engine('.html', require('ejs').__express);
+    app.set('view engine', 'html');
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
-	app.use(express.bodyParser());
-	app.use(express.methodOverride());
+	app.use(connect.bodyParser());
+	app.use(connect.methodOverride());
 	app.use(express.session({ secret: 'keyboard cat' }));
 
 	// Remember Me middleware
@@ -49,7 +52,7 @@ app.post('/login', user_routes.postlogin);
 app.get('/admin', pass.ensureAuthenticated, pass.ensureAdmin(), user_routes.admin);
 app.get('/logout', user_routes.logout);
 
-app.listen(3000, function() {
-  console.log('Express server listening on port 3000');
+app.listen(port, function() {
+  console.log('Express server listening on port ' + port);
 });
 
