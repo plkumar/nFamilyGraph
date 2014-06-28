@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var Person = require('./models/person').Person;
 
-//mongoose.set('debug', true)
+mongoose.set('debug', true)
 mongoose.connect('mongodb://localhost/familygraph');
 //mongoose.connect('mongodb://familytree:Budugu123@ds051997.mongolab.com:51997/familytree');
 var db = mongoose.connection;

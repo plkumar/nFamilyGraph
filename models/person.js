@@ -9,7 +9,6 @@ var personSchema = mongoose.Schema({
     dob: Date,
     age: Number,
     gender: String,
-    //children: [Schema.Types.ObjectId],
     children: [{
         "type": "ObjectId",
         "ref": "Person",

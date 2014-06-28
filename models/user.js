@@ -7,7 +7,7 @@ exports.mongoose = mongoose;
 var uristring = 
   process.env.MONGOLAB_URI || 
   process.env.MONGOHQ_URL || 
-  'mongodb://localhost/test';
+  'mongodb://localhost/familygraph';
 
 var mongoOptions = { db: { safe: true }};
 
@@ -26,8 +26,12 @@ var Schema = mongoose.Schema,
 // User schema
 var userSchema = new Schema({
   username: { type: String, required: true, unique: true },
+  firstname: {type: String, required: true},
+  lastname: {type: String, required: true},
+  middlename: {type: String, required: true},
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true},
+  password: { type: String, required: true },
+  facebookid : {type: String, unique: true },
   admin: { type: Boolean, required: true },
   accessToken : {type:String}
 });
@@ -67,6 +71,21 @@ userSchema.methods.generateRandomToken = function () {
     }
     return token;
 };
+
+userSchema.statics.randomPassword = function(length)
+{
+    if(!length)
+        length = 15;
+
+    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$";
+    pass = "";
+    for(x=0;x<length;x++)
+    {
+    i = Math.floor(Math.random() * 62);
+    pass += chars.charAt(i);
+    }
+    return pass;
+}
 
 // Export user model
 var userModel = mongoose.model('User', userSchema);

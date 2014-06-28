@@ -1,5 +1,6 @@
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy
+  , FacebookStrategy = require('passport-facebook').Strategy
   , User = require('./../models/user').userModel;
 
 // Simple route middleware to ensure user is authenticated.  Otherwise send to login page.
@@ -7,7 +8,6 @@ exports.ensureAuthenticated = function ensureAuthenticated(req, res, next) {
 	if (req.isAuthenticated()) {
         return next();
     }
-
     res.redirect('/login');
 };
 
@@ -87,3 +87,47 @@ passport.use(new LocalStrategy(function(username, password, done) {
 		});
 	});
 }));
+
+passport.use(new FacebookStrategy({
+    clientID: '1570828959809257',
+    clientSecret: '11f1303d795219f2da396fbbee89176c',
+    callbackURL: "http://localhost:" + process.env.PORT + "/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+      //console.log(profile);
+         
+      User.findOne({ facebookid: profile.id }, function(err, user) {
+	    if (err) {
+            return done(err);
+        }
+
+        if (!user) {
+            //return done(null, false, { message: 'Unknown user ' + username });
+            var user = new User({ username: profile.username
+                , firstname : profile.name.givenName
+                , lastname : profile.name.familyName
+                , middlename : profile.name.middleName
+			    , email: profile.username + '@facebook.com'
+			    , password: User.randomPassword(20)
+                , facebookid : profile.id
+			    , admin: false });
+
+            // save call is async, put grunt into async mode to work
+            //var done = this.async();
+
+            user.save(function(err) {
+                if(err) {
+                    console.log('Error: ' + err);
+                    done(err);
+                } else {
+                    console.log('saved user: ' + user.username);
+                    done(null, user);
+                }
+            });
+        }else{
+            done(null, user);
+        }
+	});
+  }
+));
+
