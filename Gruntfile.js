@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   grunt.registerTask('dbseed', 'seed the database', function() {
     grunt.task.run('adduser:admin:admin@example.com:secret:true');
     grunt.task.run('adduser:bob:bob@example.com:secret:false');
+    grunt.task.run('adduser:lakshman:lakshman@example.com:secret:false');
   });
 
   grunt.registerTask('adduser', 'add a user to the database', function(usr, emailaddress, pass, adm) {
@@ -15,7 +16,7 @@ module.exports = function(grunt) {
 				, email: emailaddress
 				, password: pass
 				, admin: adm });
-    
+
     // save call is async, put grunt into async mode to work
     var done = this.async();
 
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
     // async mode
     var done = this.async();
 
-    db.mongoose.connection.on('open', function () { 
+    db.mongoose.connection.on('open', function () {
       db.mongoose.connection.db.dropDatabase(function(err) {
         if(err) {
           console.log('Error: ' + err);
