@@ -3,16 +3,18 @@ var db = require('./models/user');
 module.exports = function(grunt) {
 
   grunt.registerTask('dbseed', 'seed the database', function() {
-    grunt.task.run('adduser:admin:admin@example.com:secret:true');
-    grunt.task.run('adduser:bob:bob@example.com:secret:false');
-    grunt.task.run('adduser:lakshman:lakshman@example.com:secret:false');
+    grunt.task.run('adduser:lakshman:peethani:admin:admin@example.com:secret:true');
+    grunt.task.run('adduser:bob:wolmer:bob:bob@example.com:secret:false');
+    grunt.task.run('adduser:lux:peethani:lakshman:lakshman@example.com:secret:false');
   });
 
-  grunt.registerTask('adduser', 'add a user to the database', function(usr, emailaddress, pass, adm) {
+  grunt.registerTask('adduser', 'add a user to the database', function(usr, firstname, lastname, emailaddress, pass, adm) {
     // convert adm string to bool
     adm = (adm === "true");
 
     var user = new db.userModel({ username: usr
+                , firstname : firstname
+                , lastname : lastname
 				, email: emailaddress
 				, password: pass
 				, admin: adm });

@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var personSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
+    middleName : String,
     dob: Date,
     age: Number,
     gender: String,

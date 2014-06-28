@@ -28,7 +28,7 @@ var userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   firstname: {type: String, required: true},
   lastname: {type: String, required: true},
-  middlename: {type: String, required: true},
+  middlename: {type: String, required: false},
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   facebookid : {type: String, unique: true },
