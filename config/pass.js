@@ -1,4 +1,4 @@
-﻿/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\express\express.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\passport\passport.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />

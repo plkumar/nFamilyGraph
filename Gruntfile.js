@@ -1,4 +1,4 @@
-var db = require('./models/user');
+var db = require('./models/usermodel');
 
 module.exports = function(grunt) {
 
@@ -49,5 +49,4 @@ module.exports = function(grunt) {
       });
     });
   });
-
 };

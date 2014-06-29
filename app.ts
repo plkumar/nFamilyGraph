@@ -1,25 +1,27 @@
-﻿/// <reference path=".\TypeScriptDefnitions\node\node.d.ts" />
+/// <reference path=".\TypeScriptDefnitions\node\node.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\express\express.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\passport\passport.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+
 //import db = require('./models/usermodel');
-var pass = require('./config/pass');
-var passport = require('passport');
-var basic_routes = require('./routes/basic');
-var user_routes = require('./routes/user');
-var personmodule = require('./routes/person');
-var express = require('express');
+import pass = require('./config/pass');
+import passport = require('passport');
+import basic_routes = require('./routes/basic');
+import user_routes = require('./routes/user');
+import personmodule = require('./routes/person');
+import express = require('express');
 
 var myapp = express();
 var person_routes = personmodule.Person;
+  //, connect=require('connect');
 
-//, connect=require('connect');
 var port = process.env.PORT || 3000;
 
 // configure Express
-myapp.configure(function () {
+myapp.configure(function() {
+
     // Register ejs as .html. If we did
     // not call this, we would need to
     // name our views foo.ejs instead
@@ -30,9 +32,11 @@ myapp.configure(function () {
     // to change "foo.ejs" to "foo.html"
     // we simply pass _any_ function, in this
     // case `ejs.__express`.
+
     myapp.engine('.html', require('ejs').__express);
 
     // Optional since express defaults to CWD/views
+
     myapp.set('views', __dirname + '/views');
 
     // Without this you would need to
@@ -47,28 +51,29 @@ myapp.configure(function () {
     myapp.use(express.urlencoded());
     myapp.use(express.json());
 
-    //myapp.use(connect.methodOverride());
+	//myapp.use(connect.methodOverride());
     myapp.use(express.session({ secret: 'keyboard cat' }));
 
-    // Remember Me middleware
-    myapp.use(function (req, res, next) {
-        if (req.method == 'POST' && req.url == '/login') {
-            if (req.body.rememberme) {
-                req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
-            } else {
-                req.session.cookie.expires = false;
-            }
-        }
-        next();
-    });
+	// Remember Me middleware
+    myapp.use( function (req, res, next) {
+		if ( req.method == 'POST' && req.url == '/login' ) {
+			if ( req.body.rememberme ) {
+				req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
+			} else {
+				req.session.cookie.expires = false;
+			}
+		}
+		next();
+	});
 
-    // Initialize Passport!  Also use passport.session() middleware, to support
-    // persistent login sessions (recommended).
+	// Initialize Passport!  Also use passport.session() middleware, to support
+	// persistent login sessions (recommended).
     myapp.use(passport.initialize());
     myapp.use(passport.session());
     myapp.use(myapp.router);
     myapp.use(express.static(__dirname + '/../../public'));
 });
+
 
 // Basic pages
 myapp.get('/', basic_routes.index);
@@ -80,7 +85,6 @@ myapp.post('/login', user_routes.postlogin);
 myapp.get('/admin', pass.ensureAuthenticated, pass.ensureAdmin(), user_routes.admin);
 myapp.get('/logout', user_routes.logout);
 myapp.get('/person', person_routes.index);
-
 // Redirect the user to Facebook for authentication.  When complete,
 // Facebook will redirect the user back to the application at
 //     /auth/facebook/callback
@@ -90,12 +94,13 @@ myapp.get('/auth/facebook', passport.authenticate('facebook'));
 // authentication process by attempting to obtain an access token.  If
 // access was granted, the user will be logged in.  Otherwise,
 // authentication has failed.
-myapp.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    scope: ['user_about_me', 'email'] }));
 
-myapp.listen(port, function () {
-    console.log('Express server listening on port ' + port);
+myapp.get('/auth/facebook/callback', 
+  passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login',
+                                      scope: ['user_about_me', 'email'] }));
+
+myapp.listen(port, function() {
+  console.log('Express server listening on port ' + port);
 });
-//# sourceMappingURL=app.js.map
+

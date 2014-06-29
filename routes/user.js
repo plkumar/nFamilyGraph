@@ -1,4 +1,4 @@
-﻿var passport = require('passport');
+var passport = require('passport');
 
 function account(req, res) {
     res.render('account', { user: req.user });

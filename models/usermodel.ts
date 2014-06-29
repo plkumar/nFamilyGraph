@@ -1,3 +1,10 @@
+﻿/// <reference path=".\..\TypeScriptDefnitions\node\node.d.ts" />
+/// <reference path=".\..\TypeScriptDefnitions\express\express.d.ts" />
+/// <reference path=".\..\TypeScriptDefnitions\passport\passport.d.ts" />
+/// <reference path=".\..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
+/// <reference path=".\..\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
+/// <reference path=".\..\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+
 var mongoose = require('mongoose'),
 	bcrypt = require('bcrypt-nodejs'),
 	SALT_WORK_FACTOR = 10;
@@ -12,11 +19,11 @@ var uristring =
 var mongoOptions = { db: { safe: true }};
 
 mongoose.connect(uristring, mongoOptions, function (err, res) {
-  if (err) { 
+    if (err) { 
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
+    } else {
     console.log ('Successfully connected to: ' + uristring);
-  }
+    }
 });
 
 //******* Database schema TODO add more validation
@@ -25,16 +32,16 @@ var Schema = mongoose.Schema,
 
 // User schema
 var userSchema = new Schema({
-  username: { type: String, required: true, unique: true },
-  firstname: {type: String, required: true},
-  lastname: {type: String, required: true},
-  middlename: {type: String, required: false},
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  facebookid : {type: String, unique: true },
-  isactive : {type:Boolean, default:true},
-  admin: { type: Boolean, required: true },
-  accessToken : {type:String}
+    username: { type: String, required: true, unique: true },
+    firstname: {type: String, required: true},
+    lastname: {type: String, required: true},
+    middlename: {type: String, required: false},
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    facebookid : {type: String, unique: true },
+    isactive : {type:Boolean, default:true},
+    admin: { type: Boolean, required: true },
+    accessToken : {type:String}
 });
 
 
@@ -56,7 +63,7 @@ userSchema.pre('save', function(next) {
 });
 
 // Password verification
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
+userSchema.methods.comparePassword = function(candidatePassword: String, cb) {
 	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
 		if(err) return cb(err);
 		cb(null, isMatch);
@@ -73,13 +80,15 @@ userSchema.methods.generateRandomToken = function () {
     return token;
 };
 
-userSchema.statics.randomPassword = function(length)
+userSchema.statics.randomPassword = function(length:Number)
 {
     if(!length)
         length = 15;
 
-    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$";
-    pass = "";
+    var chars:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$";
+    var pass: String = "";
+    var x: Number = 0;
+    var i: Number = 0;
     for(x=0;x<length;x++)
     {
     i = Math.floor(Math.random() * 62);
