@@ -1,34 +1,41 @@
-/// <reference path="..\packages\node.TypeScript.DefinitelyTyped.0.6.4\Content\Scripts\typings\node\node.d.ts" />
-/// <reference path="..\packages\express.TypeScript.DefinitelyTyped.0.8.0\Content\Scripts\typings\express\express.d.ts" />
-/// <reference path="..\packages\passport.TypeScript.DefinitelyTyped.0.0.2\Content\Scripts\typings\passport\passport.d.ts" />
-/// <reference path="..\packages\passport-facebook.TypeScript.DefinitelyTyped.0.0.1\Content\Scripts\typings\passport-facebook\passport-facebook.d.ts" />
-/// <reference path="..\packages\mongodb.TypeScript.DefinitelyTyped.0.0.9\Content\Scripts\typings\mongodb\mongodb.d.ts" />
-/// <reference path="..\packages\mongoose.TypeScript.DefinitelyTyped.0.0.1\Content\Scripts\typings\mongoose\mongoose.d.ts" />
+﻿/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\express\express.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\passport\passport.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+var passport = require('passport');
+var passportlocal = require('passport-local');
+var passportfacebook = require('passport-facebook');
+var usermodule = require('./../models/user');
 
-var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy
-  , FacebookStrategy = require('passport-facebook').Strategy
-  , User = require('./../models/user').userModel;
+var LocalStrategy = passportlocal.Strategy;
+var FacebookStrategy = passportfacebook.Strategy;
+var User = usermodule.userModel;
 
 // Simple route middleware to ensure user is authenticated.  Otherwise send to login page.
-exports.ensureAuthenticated = function ensureAuthenticated(req, res, next) {
-	if (req.isAuthenticated()) {
+function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
         return next();
     }
     res.redirect('/login');
-};
+}
+exports.ensureAuthenticated = ensureAuthenticated;
+;
 
 // Check for admin middleware, this is unrelated to passport.js
 // You can delete this if you use different method to check for admins or don't need admins
-exports.ensureAdmin = function ensureAdmin(req, res, next) {
-	return function(req, res, next) {
-		console.log(req.user);
-		if(req.user && req.user.admin === true)
-			next();
-		else
-			res.send(403);
-	};
-};
+function ensureAdmin(req, res, next) {
+    return function (req, res, next) {
+        console.log(req.user);
+        if (req.user && req.user.admin === true)
+            next();
+        else
+            res.send(403);
+    };
+}
+exports.ensureAdmin = ensureAdmin;
+;
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -37,34 +44,37 @@ exports.ensureAdmin = function ensureAdmin(req, res, next) {
 //   the user by ID when deserializing.
 //
 //   Both serializer and deserializer edited for Remember Me functionality
-passport.serializeUser(function(user, done) {
-	var createAccessToken = function () {
-		var token = user.generateRandomToken();
-		User.findOne( { accessToken: token }, function (err, existingUser) {
-			if (err) { return done( err ); }
-			if (!existingUser) {
-				user.set('accessToken', token);
-				user.save(function (err) {
-					if (err) return done(err);
-					return done(null, user.get('accessToken'));
-				})
-			} else {
-				createAccessToken(); // Run the function again - the token has to be unique!
-			}
-		});
-	};
+passport.serializeUser(function (user, done) {
+    var createAccessToken = function () {
+        var token = user.generateRandomToken();
+        User.findOne({ accessToken: token }, function (err, existingUser) {
+            if (err) {
+                return done(err);
+            }
+            if (!existingUser) {
+                user.set('accessToken', token);
+                user.save(function (err) {
+                    if (err)
+                        return done(err);
+                    return done(null, user.get('accessToken'));
+                });
+            } else {
+                createAccessToken(); // Run the function again - the token has to be unique!
+            }
+        });
+    };
 
-	if ( user._id ) {
-		createAccessToken();
-	}
+    if (user._id) {
+        createAccessToken();
+    }
 });
 
-passport.deserializeUser(function(token, done) {
+passport.deserializeUser(function (token, done) {
     console.log('Deserializing user for toke:' + token);
-	User.findOne( {accessToken: token } , function (err, user) {
+    User.findOne({ accessToken: token }, function (err, user) {
         console.log('Found User ' + user.username);
-		done(err, user);
-	});
+        done(err, user);
+    });
 });
 
 // Use the LocalStrategy within Passport.
@@ -72,58 +82,55 @@ passport.deserializeUser(function(token, done) {
 //   credentials (in this case, a username and password), and invoke a callback
 //   with a user object.  In the real world, this would query a database;
 //   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(function(username, password, done) {
-	User.findOne({ username: username }, function(err, user) {
-		if (err) {
+passport.use(new LocalStrategy(function (username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+        if (err) {
             return done(err);
         }
 
         if (!user) {
             return done(null, false, { message: 'Unknown user ' + username });
         }
-		user.comparePassword(password, function(err, isMatch) {
-
-				if (err)
+        user.comparePassword(password, function (err, isMatch) {
+            if (err)
                 return done(err);
 
-			if(isMatch) {
-				return done(null, user);
-			} else {
-				return done(null, false, { message: 'Invalid password' });
-			}
-		});
-	});
+            if (isMatch) {
+                return done(null, user);
+            } else {
+                return done(null, false, { message: 'Invalid password' });
+            }
+        });
+    });
 }));
 
 passport.use(new FacebookStrategy({
     clientID: '1570828959809257',
     clientSecret: '11f1303d795219f2da396fbbee89176c',
     callbackURL: "http://localhost:" + process.env.PORT + "/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-      //console.log(profile);
-         
-      User.findOne({ facebookid: profile.id }, function(err, user) {
-	    if (err) {
+}, function (accessToken, refreshToken, profile, done) {
+    //console.log(profile);
+    User.findOne({ facebookid: profile.id }, function (err, user) {
+        if (err) {
             return done(err);
         }
 
         if (!user) {
             //return done(null, false, { message: 'Unknown user ' + username });
-            var user = new User({ username: profile.username
-                , firstname : profile.name.givenName
-                , lastname : profile.name.familyName
-                , middlename : profile.name.middleName
-			    , email: profile.username + '@facebook.com'
-			    , password: User.randomPassword(20)
-                , facebookid : profile.id
-			    , admin: false });
+            var user = new User({
+                username: profile.username,
+                firstname: profile.name.givenName,
+                lastname: profile.name.familyName,
+                middlename: profile.name.middleName,
+                email: profile.username + '@facebook.com',
+                password: User.randomPassword(20),
+                facebookid: profile.id,
+                admin: false });
 
             // save call is async, put grunt into async mode to work
             //var done = this.async();
-
-            user.save(function(err) {
-                if(err) {
+            user.save(function (err) {
+                if (err) {
                     console.log('Error: ' + err);
                     done(err);
                 } else {
@@ -131,10 +138,9 @@ passport.use(new FacebookStrategy({
                     done(null, user);
                 }
             });
-        }else{
+        } else {
             done(null, user);
         }
-	});
-  }
-));
-
+    });
+}));
+//# sourceMappingURL=pass.js.map
