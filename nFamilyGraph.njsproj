@@ -29,7 +29,6 @@
     <Compile Include="Gruntfile.js" />
     <Compile Include="mongoose.js" />
     <Compile Include="models\person.js" />
-    <Compile Include="models\user.js" />
     <Content Include="public\favicon.ico" />
     <TypeScriptCompile Include="models\usermodel.ts" />
     <TypeScriptCompile Include="routes\basic.ts" />
