@@ -1,59 +1,62 @@
-/// <reference path="nodelib/node.js" />
+/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\express\express.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\passport\passport.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+var mongoose = require('mongoose');
 
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-var personSchema = mongoose.Schema({
+var personSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
-    middleName : String,
+    middleName: String,
     dob: Date,
     age: Number,
     gender: String,
     children: [{
-        "type": "ObjectId",
-        "ref": "Person",
-        "index": true,
-        "required": true
-    }],
+            "type": "ObjectId",
+            "ref": "Person",
+            "index": true,
+            "required": true
+        }],
     parents: [{
-        "type": "ObjectId",
-        "ref": "Person",
-        "index": true,
-        "required": true
-    }],
+            "type": "ObjectId",
+            "ref": "Person",
+            "index": true,
+            "required": true
+        }],
     spouse: [{
-        peopleid: Schema.Types.ObjectId,
-        status: String
-    }]
+            peopleid: Schema.Types.ObjectId,
+            status: String
+        }]
 });
 
 // NOTE: methods must be added to the schema before compiling it with mongoose.model()
-
-personSchema.methods.findChildren = function(callback) {
+personSchema.methods.findChildren = function (callback) {
     return this.db.model('Person').findById(this.children, callback);
 };
 
-personSchema.statics.findByfirstName = function(firstName, callback) {
+personSchema.statics.findByfirstName = function (firstName, callback) {
     return this.find({
         firstName: firstName
     }, callback);
 };
 
-personSchema.methods.setParent= function(parentId, callback)
-{
+personSchema.methods.setParent = function (parentId, callback) {
     this.parents.push(parentId);
-    callback?this.save(callback):this.save();
+    callback ? this.save(callback) : this.save();
 };
 
-personSchema.methods.setChildren = function (childId, callback)
-{
+personSchema.methods.setChildren = function (childId, callback) {
     this.children.push(childId);
-    (callback)?this.save(callback):this.save();
+    (callback) ? this.save(callback) : this.save();
 };
 
 var Person = mongoose.model('Person', personSchema);
 
 module.exports = {
-  Person: Person
+    Person: Person
 };
+//# sourceMappingURL=person.js.map

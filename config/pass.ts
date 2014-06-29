@@ -7,7 +7,7 @@
 import passport = require('passport');
 import passportlocal = require('passport-local');
 import passportfacebook = require('passport-facebook');
-import usermodule = require('./../models/user');
+import usermodule = require('./../models/usermodel');
 
 
 var LocalStrategy = passportlocal.Strategy;

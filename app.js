@@ -97,5 +97,6 @@ myapp.get('/auth/facebook/callback', passport.authenticate('facebook', {
 
 myapp.listen(port, function () {
     console.log('Express server listening on port ' + port);
+    console.log(JSON.stringify(process.config));
 });
 //# sourceMappingURL=app.js.map

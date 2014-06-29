@@ -101,6 +101,7 @@ myapp.get('/auth/facebook/callback',
                                       scope: ['user_about_me', 'email'] }));
 
 myapp.listen(port, function() {
-  console.log('Express server listening on port ' + port);
+    console.log('Express server listening on port ' + port);
+    console.log(JSON.stringify(process.config));
 });
 

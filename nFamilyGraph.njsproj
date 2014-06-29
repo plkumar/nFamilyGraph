@@ -28,7 +28,7 @@
     <TypeScriptCompile Include="config\pass.ts" />
     <Compile Include="Gruntfile.js" />
     <Compile Include="mongoose.js" />
-    <Compile Include="models\person.js" />
+    <TypeScriptCompile Include="models\person.ts" />
     <Content Include="public\favicon.ico" />
     <TypeScriptCompile Include="models\usermodel.ts" />
     <TypeScriptCompile Include="routes\basic.ts" />
