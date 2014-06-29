@@ -2,6 +2,7 @@
 /// <reference path="..\TypeScriptDefnitions\express\express.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\passport\passport.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
+/// <reference path="..\TypeScriptDefnitions\passport-local\passport-local.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
 var passport = require('passport');

@@ -87,8 +87,8 @@ userSchema.statics.randomPassword = function(length:Number)
 
     var chars:String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$";
     var pass: String = "";
-    var x: Number = 0;
-    var i: Number = 0;
+    var x: number = 0;
+    var i: number = 0;
     for(x=0;x<length;x++)
     {
     i = Math.floor(Math.random() * 62);
