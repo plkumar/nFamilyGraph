@@ -1,4 +1,4 @@
-###This is a very similar example as express3-mongoose example with a couple differences. 
+###FamilyGraph - Family Tree (Geneology) Appllication.
 
 #### 1. app.js is now split up into multiple files
 
