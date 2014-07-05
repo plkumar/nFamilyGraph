@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     grunt.task.run('adduser:lux:peethani:lakshman:lakshman@example.com:secret:false');
   });
 
-  grunt.registerTask('adduser', 'add a user to the database', function(usr, firstname, lastname, emailaddress, pass, adm) {
+  grunt.registerTask('adduser', 'add a user to the database', function(firstname, lastname, usr, emailaddress, pass, adm) {
     // convert adm string to bool
     adm = (adm === "true");
 

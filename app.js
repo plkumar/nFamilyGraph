@@ -1,10 +1,11 @@
-/// <reference path=".\TypeScriptDefnitions\node\node.d.ts" />
+﻿/// <reference path=".\TypeScriptDefnitions\node\node.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\express\express.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\passport\passport.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
 /// <reference path=".\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
 //import db = require('./models/usermodel');
+var path = require('path');
 var pass = require('./config/pass');
 var passport = require('passport');
 var basic_routes = require('./routes/basic');
@@ -67,7 +68,8 @@ myapp.configure(function () {
     myapp.use(passport.initialize());
     myapp.use(passport.session());
     myapp.use(myapp.router);
-    myapp.use(express.static(__dirname + '/../../public'));
+    console.log(path.join(__dirname, './public'));
+    myapp.use(express.static(path.join(__dirname, './public')));
 });
 
 // Basic pages
@@ -97,6 +99,6 @@ myapp.get('/auth/facebook/callback', passport.authenticate('facebook', {
 
 myapp.listen(port, function () {
     console.log('Express server listening on port ' + port);
-    console.log(JSON.stringify(process.config));
+    //console.log(JSON.stringify(process.config));
 });
 //# sourceMappingURL=app.js.map

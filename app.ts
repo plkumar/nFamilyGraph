@@ -6,6 +6,7 @@
 /// <reference path=".\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
 
 //import db = require('./models/usermodel');
+import path = require('path');
 import pass = require('./config/pass');
 import passport = require('passport');
 import basic_routes = require('./routes/basic');
@@ -71,7 +72,8 @@ myapp.configure(function() {
     myapp.use(passport.initialize());
     myapp.use(passport.session());
     myapp.use(myapp.router);
-    myapp.use(express.static(__dirname + '/../../public'));
+    console.log(path.join(__dirname, './public'));
+    myapp.use(express.static(path.join(__dirname, './public')));
 });
 
 
@@ -102,6 +104,6 @@ myapp.get('/auth/facebook/callback',
 
 myapp.listen(port, function() {
     console.log('Express server listening on port ' + port);
-    console.log(JSON.stringify(process.config));
+    //console.log(JSON.stringify(process.config));
 });
 

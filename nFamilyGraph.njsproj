@@ -5,8 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{50a7817d-7189-4c6e-b7a9-b1ef63006c98}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ProjectFiles</ProjectView>
-    <StartupFile>app.ts</StartupFile>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>app.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
@@ -33,6 +33,14 @@
     <TypeScriptCompile Include="models\usermodel.ts" />
     <TypeScriptCompile Include="routes\basic.ts" />
     <TypeScriptCompile Include="routes\user.ts" />
+    <Content Include="TypeScriptDefnitions\express\express.d.ts" />
+    <Content Include="TypeScriptDefnitions\mongodb\mongodb.d.ts" />
+    <Content Include="TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+    <Content Include="TypeScriptDefnitions\node\node-0.8.8.d.ts" />
+    <Content Include="TypeScriptDefnitions\node\node.d.ts" />
+    <Content Include="TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
+    <Content Include="TypeScriptDefnitions\passport-local\passport-local.d.ts" />
+    <Content Include="TypeScriptDefnitions\passport\passport.d.ts" />
     <Content Include="views\account.html" />
     <Content Include="views\addperson.html" />
     <Content Include="views\footer.html" />
@@ -79,6 +87,14 @@
     <Folder Include="public\javascripts\images" />
     <Folder Include="public\stylesheets" />
     <Folder Include="routes" />
+    <Folder Include="TypeScriptDefnitions\" />
+    <Folder Include="TypeScriptDefnitions\express\" />
+    <Folder Include="TypeScriptDefnitions\mongodb\" />
+    <Folder Include="TypeScriptDefnitions\mongoose\" />
+    <Folder Include="TypeScriptDefnitions\node\" />
+    <Folder Include="TypeScriptDefnitions\passport-facebook\" />
+    <Folder Include="TypeScriptDefnitions\passport-local\" />
+    <Folder Include="TypeScriptDefnitions\passport\" />
     <Folder Include="views" />
   </ItemGroup>
   <ItemGroup>
