@@ -14,9 +14,9 @@ var mongoOptions = { db: { safe: true } };
 
 mongoose.connect(uristring, mongoOptions, function (err, res) {
     if (err) {
-        console.log('ERROR connecting to: ' + uristring + '. ' + err);
+        console.log('ERROR connecting to : ' + uristring + '. ' + err);
     } else {
-        console.log('Successfully connected to: ' + uristring);
+        console.log('Successfully connected to : ' + uristring);
     }
 });
 

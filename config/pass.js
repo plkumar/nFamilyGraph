@@ -1,4 +1,4 @@
-/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
+﻿/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\express\express.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\passport\passport.d.ts" />
 /// <reference path="..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
@@ -8,11 +8,11 @@
 var passport = require('passport');
 var passportlocal = require('passport-local');
 var passportfacebook = require('passport-facebook');
-var usermodule = require('./../models/usermodel');
+var usermodel = require('../models/usermodel');
 
 var LocalStrategy = passportlocal.Strategy;
 var FacebookStrategy = passportfacebook.Strategy;
-var User = usermodule.userModel;
+var User = usermodel.userModel;
 
 // Simple route middleware to ensure user is authenticated.  Otherwise send to login page.
 function ensureAuthenticated(req, res, next) {

@@ -20,8 +20,7 @@ declare module 'passport-local' {
     } */
 
     class Strategy implements passport.Strategy{
-        constructor(options :Object,
-                    verify:(username, password, done:(error:any, user?:any) => void) => void);
+        constructor(obj:Function);
         name: string;
         authenticate:(req: express.Request, options?: Object) => void;
     }

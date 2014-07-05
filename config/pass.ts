@@ -8,12 +8,11 @@
 import passport = require('passport');
 import passportlocal = require('passport-local');
 import passportfacebook = require('passport-facebook');
-import usermodule = require('./../models/usermodel');
-
+import usermodel = require('../models/usermodel');
 
 var LocalStrategy = passportlocal.Strategy;
 var FacebookStrategy = passportfacebook.Strategy
-var User = usermodule.userModel;
+var User = usermodel.userModel;
 
 // Simple route middleware to ensure user is authenticated.  Otherwise send to login page.
 export function ensureAuthenticated(req, res, next) {
@@ -25,7 +24,7 @@ export function ensureAuthenticated(req, res, next) {
 
 // Check for admin middleware, this is unrelated to passport.js
 // You can delete this if you use different method to check for admins or don't need admins
-export function ensureAdmin(req, res, next) {
+export function ensureAdmin(req?, res?, next?) {
 	return function(req, res, next) {
 		console.log(req.user);
 		if(req.user && req.user.admin === true)
@@ -42,7 +41,7 @@ export function ensureAdmin(req, res, next) {
 //   the user by ID when deserializing.
 //
 //   Both serializer and deserializer edited for Remember Me functionality
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function(user, done:Function) {
 	var createAccessToken = function () {
 		var token = user.generateRandomToken();
 		User.findOne( { accessToken: token }, function (err, existingUser) {
@@ -64,7 +63,7 @@ passport.serializeUser(function(user, done) {
 	}
 });
 
-passport.deserializeUser(function(token, done) {
+passport.deserializeUser(function(token, done: Function) {
     console.log('Deserializing user for toke:' + token);
 	User.findOne( {accessToken: token } , function (err, user) {
         console.log('Found User ' + user.username);
@@ -77,7 +76,7 @@ passport.deserializeUser(function(token, done) {
 //   credentials (in this case, a username and password), and invoke a callback
 //   with a user object.  In the real world, this would query a database;
 //   however, in this example we are using a baked-in set of users.
-passport.use(new LocalStrategy(function(username, password, done) {
+passport.use(new LocalStrategy(function(username:String, password:String, done:Function) {
 	User.findOne({ username: username }, function(err, user) {
 		if (err) {
             return done(err);
@@ -105,7 +104,7 @@ passport.use(new FacebookStrategy({
     clientSecret: '11f1303d795219f2da396fbbee89176c',
     callbackURL: "http://localhost:" + process.env.PORT + "/auth/facebook/callback"
   },
-  function(accessToken, refreshToken, profile, done) {
+  function(accessToken, refreshToken, profile, done: Function) {
       //console.log(profile);
          
       User.findOne({ facebookid: profile.id }, function(err, user) {

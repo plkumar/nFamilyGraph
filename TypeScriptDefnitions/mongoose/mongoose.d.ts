@@ -108,6 +108,8 @@ declare module "mongoose" {
     static(name: string, fn: Function): Schema;
     virtual(name: string, options?: Object): VirtualType;
     virtualpath(name: string): VirtualType;
+    methods: any;
+    statics: any;
   }
   export interface SchemaOption {
     autoIndex?: boolean;
