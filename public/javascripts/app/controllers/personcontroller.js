@@ -1,5 +1,4 @@
-﻿/// <reference path="../_all.ts" />
-/// <reference path="../models/PersonModel.ts" />
+﻿/// <reference path=".\..\..\..\..\typings\server.d.ts" />
 (function (PersonController) {
     var Controller = (function () {
         function Controller($scope) {
@@ -10,4 +9,4 @@
     PersonController.Controller = Controller;
 })(exports.PersonController || (exports.PersonController = {}));
 var PersonController = exports.PersonController;
-//# sourceMappingURL=personcontroller.js.map
+//# sourceMappingURL=PersonController.js.map

@@ -1,4 +1,5 @@
-﻿/// <reference path="../_all.ts" />
+﻿/// <reference path=".\..\..\..\typings\client.d.ts" />
+
 module familygraph {
 
     var fgapp = angular.module('fgapp', [])

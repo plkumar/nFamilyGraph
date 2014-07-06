@@ -1,9 +1,4 @@
-﻿/// <reference path=".\..\TypeScriptDefnitions\node\node.d.ts" />
-/// <reference path=".\..\TypeScriptDefnitions\express\express.d.ts" />
-/// <reference path=".\..\TypeScriptDefnitions\passport\passport.d.ts" />
-/// <reference path=".\..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
-/// <reference path=".\..\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
-/// <reference path=".\..\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+﻿/// <reference path=".\..\typings\server.d.ts" />
 var mongoose = require('mongoose'), bcrypt = require('bcrypt-nodejs'), SALT_WORK_FACTOR = 10;
 exports.mongoose = mongoose;
 

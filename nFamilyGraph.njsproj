@@ -34,7 +34,6 @@
     <TypeScriptCompile Include="public\javascripts\app\app.ts" />
     <TypeScriptCompile Include="public\javascripts\app\controllers\PersonController.ts" />
     <TypeScriptCompile Include="public\javascripts\app\models\PersonModel.ts" />
-    <TypeScriptCompile Include="public\javascripts\app\_all.ts" />
     <TypeScriptCompile Include="routes\basic.ts" />
     <TypeScriptCompile Include="routes\user.ts" />
     <Content Include="tsd.json" />

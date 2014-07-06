@@ -1,8 +1,10 @@
-﻿import personmodel = require('../models/PersonModel');
+﻿/// <reference path=".\..\..\..\..\typings\server.d.ts" />
+
+import personmodel = require('../models/PersonModel');
 
 export module PersonController {
-    export interface Scope {
-        person: personmodel.Person;
+    export interface Scope extends ng.IScope {
+        person: personmodel.Model.Person;
     }
 
     export class Controller {
