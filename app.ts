@@ -1,6 +1,5 @@
-/// <reference path=".\typings\tsd.d.ts" />
+/// <reference path=".\typings\server.d.ts" />
 
-//import db = require('./models/usermodel');
 import path = require('path');
 import pass = require('./config/pass');
 import passport = require('passport');
@@ -13,7 +12,7 @@ var myapp = express();
 var person_routes = personmodule.Person;
   //, connect=require('connect');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000 ;
 
 // configure Express
 myapp.configure(function() {

@@ -1,10 +1,5 @@
-/// <reference path="..\TypeScriptDefnitions\node\node.d.ts" />
-/// <reference path="..\TypeScriptDefnitions\express\express.d.ts" />
-/// <reference path="..\TypeScriptDefnitions\passport\passport.d.ts" />
-/// <reference path="..\TypeScriptDefnitions\passport-facebook\passport-facebook.d.ts" />
-/// <reference path="..\TypeScriptDefnitions\passport-local\passport-local.d.ts" />
-/// <reference path="..\TypeScriptDefnitions\mongodb\mongodb.d.ts" />
-/// <reference path="..\TypeScriptDefnitions\mongoose\mongoose.d.ts" />
+/// <reference path="..\typings\server.d.ts" />
+
 import passport = require('passport');
 import passportlocal = require('passport-local');
 import passportfacebook = require('passport-facebook');

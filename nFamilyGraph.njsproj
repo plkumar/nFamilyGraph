@@ -120,7 +120,7 @@
     <Content Include="typings\passport-local\passport-local.d.ts" />
     <Content Include="typings\passport\passport.d.ts" />
     <Content Include="typings\tsd.d.ts" />
-    <Content Include="typings\TypeScriptDefnitions.d.ts" />
+    <Content Include="typings\client.d.ts" />
     <Content Include="views\account.html" />
     <Content Include="views\addperson.html" />
     <Content Include="views\footer.html" />
@@ -144,6 +144,7 @@
     <Content Include="public\images\windowsLive.png" />
     <Content Include="public\stylesheets\chat.css" />
     <Content Include="public\stylesheets\style.css" />
+    <TypeScriptCompile Include="typings\server.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="config" />
