@@ -1,0 +1,249 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "angular-agility/angular-agility.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angular-translate/angular-translate.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angular-ui-bootstrap/angular-ui-bootstrap.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularfire/angularfire.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angular-ui/angular-ui-router.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularLocalStorage/angularLocalStorage.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-cookies.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-mocks.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-resource.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-route.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-sanitize.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-animate.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular-scenario.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angular-protractor/angular-protractor.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "express/express.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "node/node.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "mongodb/mongodb.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "mongoose/mongoose.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "passport/passport.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "passport-facebook/passport-facebook.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.autosize/jquery.autosize.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "flot/jquery.flot.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.bbq/jquery.bbq.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.blockUI/jquery.blockUI.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.are-you-sure/jquery.are-you-sure.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.base64/jquery.base64.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.address/jquery.address.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.bootstrap.wizard/jquery.bootstrap.wizard.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.cleditor/jquery.cleditor.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.clientSideLogging/jquery.clientSideLogging.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.colorpicker/jquery.colorpicker.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.contextMenu/jquery.contextMenu.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.cookie/jquery.cookie.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.cycle2/jquery.cycle2.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.colorbox/jquery.colorbox.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.cycle/jquery.cycle.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.color/jquery.color.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.dynatree/jquery.dynatree.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.elang/jquery.elang.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.dataTables/jquery.dataTables.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.fileupload/jquery.fileupload.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.finger/jquery.finger.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.form/jquery.form.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.jnotify/jquery.jnotify.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.noty/jquery.noty.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.joyride/jquery.joyride.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.livestampjs/jquery.livestampjs.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.menuaim/jquery.menuaim.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.pjax/jquery.pjax.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.placeholder/jquery.placeholder.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.payment/jquery.payment.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.jsignature/jquery.jsignature.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.postMessage/jquery.postMessage.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.pnotify/jquery.pnotify.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.pickadate/jquery.pickadate.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.prettyphoto/jquery.prettyphoto.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.scrollTo/jquery.scrollTo.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.simplePagination/jquery.simplePagination.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.simulate/jquery.simulate.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.sortElements/jquery.sortElement.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.tagsmanager/jquery.tagsmanager.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.superLink/jquery.superLink.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.tile/jquery.tile.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.timeago/jquery.timeago.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.timepicker/jquery.timepicker.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.tinyscrollbar/jquery.tinyscrollbar.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.tooltipster/jquery.tooltipster.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.timer/jquery.timer.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.tinycarousel/jquery.tinycarousel.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.total-storage/jquery.total-storage.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.watermark/jquery.watermark.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.ui.layout/jquery.ui.layout.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.transit/jquery.transit.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.ui.datetimepicker/jquery.ui.datetimepicker.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquery.validation/jquery.validation.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jquerymobile/jquerymobile.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jsplumb/jquery.jsPlumb.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    },
+    "jqueryui/jqueryui.d.ts": {
+      "commit": "e3afbff6d4971b7ed29c811784e06ca5653799b9"
+    }
+  }
+}
